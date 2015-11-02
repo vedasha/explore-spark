@@ -60,6 +60,7 @@
         "id": "why-not",
         "class": "step its-in-3d",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 8000,
             "y": 0,
@@ -70,6 +71,9 @@
             "rotate-z": 0
 =======
             "x": 6000,
+=======
+            "x": 3000,
+>>>>>>> change picture size, update effect
             "y": 0,
             "z": 0,
             "scale": 1,
@@ -84,6 +88,7 @@
         "id": "whatis",
         "class": "step",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 8000,
             "y": 4000,
@@ -113,11 +118,14 @@
         "id": "shoulders",
 =======
             "x": 9000,
+=======
+            "x": 4000,
+>>>>>>> change picture size, update effect
             "y": 0,
             "z": 0,
             "scale": 1,
             "rotate-x": 0,
-            "rotate-y": 0,
+            "rotate-y": 90,
             "rotate-z": 90
         }
     },
@@ -127,7 +135,7 @@
 >>>>>>> add vikan presentation
         "class": "step",
         "data": {
-            "x": 12000,
+            "x": 5000,
             "y": 0,
             "z": 0,
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
@@ -148,6 +156,7 @@
         "id": "demo",
         "class": "step",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 12000,
             "y": -8000,
@@ -158,10 +167,13 @@
             "rotate-z": 0
 =======
             "x": 15000,
+=======
+            "x": 6000,
+>>>>>>> change picture size, update effect
             "y": 0,
-            "z": 0,
+            "z": 500,
             "scale": 1,
-            "rotate-x": 0,
+            "rotate-x": 90,
             "rotate-y": 0,
             "rotate-z": 90
 >>>>>>> add vikan presentation
@@ -172,6 +184,7 @@
         "id": "usingbootstrap",
         "class": "step",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 12000,
             "y": 0,
@@ -182,6 +195,9 @@
             "rotate-z": 0
 =======
             "x": 18000,
+=======
+            "x": 7000,
+>>>>>>> change picture size, update effect
             "y": 0,
             "z": 0,
             "scale": 1,
@@ -196,6 +212,7 @@
         "id": "navbar",
         "class": "step",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 16000,
             "y": 0,
@@ -206,6 +223,9 @@
             "rotate-z": 0
 =======
             "x": 21000,
+=======
+            "x": 8000,
+>>>>>>> change picture size, update effect
             "y": 0,
             "z": 0,
             "scale": 1,
@@ -220,6 +240,7 @@
         "id": "avatar",
         "class": "step",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 16000,
             "y": 0,
@@ -230,6 +251,9 @@
             "rotate-z": 0
 =======
             "x": 24000,
+=======
+            "x": 9000,
+>>>>>>> change picture size, update effect
             "y": 0,
             "z": 0,
             "scale": 1,
@@ -244,6 +268,7 @@
         "id": "columns",
         "class": "step",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 16000,
             "y": 8000,
@@ -254,10 +279,13 @@
             "rotate-z": 0
 =======
             "x": 27000,
+=======
+            "x": 10000,
+>>>>>>> change picture size, update effect
             "y": 0,
             "z": 0,
             "scale": 1,
-            "rotate-x": 0,
+            "rotate-x": 45,
             "rotate-y": 0,
             "rotate-z": 90
 >>>>>>> add vikan presentation
@@ -268,6 +296,7 @@
         "id": "dragndrop",
         "class": "step",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 20000,
             "y": 0,
@@ -348,11 +377,14 @@
             "rotate-z": 0
 =======
             "x": 30000,
+=======
+            "x": 11000,
+>>>>>>> change picture size, update effect
             "y": 0,
             "z": 0,
             "scale": 1,
             "rotate-x": 0,
-            "rotate-y": 0,
+            "rotate-y": 45,
             "rotate-z": 90
         }
     },
@@ -361,12 +393,12 @@
         "id": "mongolab",
         "class": "step",
         "data": {
-            "x": 33000,
+            "x": 12000,
             "y": 0,
             "z": 0,
             "scale": 1,
             "rotate-x": 0,
-            "rotate-y": 0,
+            "rotate-y": 90,
             "rotate-z": 90
         }
     },
@@ -375,9 +407,9 @@
         "id": "mongolabsteps",
         "class": "step",
         "data": {
-            "x": 36000,
-            "y": 0,
-            "z": 0,
+            "x": 12000,
+            "y": -1200,
+            "z": 2000,
             "scale": 1,
             "rotate-x": 0,
             "rotate-y": 0,
@@ -389,9 +421,9 @@
         "id": "mongolabquery",
         "class": "step",
         "data": {
-            "x": 39000,
+            "x": 12000,
             "y": 0,
-            "z": 0,
+            "z": 1000,
             "scale": 1,
             "rotate-x": 0,
             "rotate-y": 0,
@@ -403,9 +435,9 @@
         "id": "mongolabupdate",
         "class": "step",
         "data": {
-            "x": 42000,
-            "y": 0,
-            "z": 0,
+            "x": 12000,
+            "y": 1000,
+            "z": 1000,
             "scale": 1,
             "rotate-x": 0,
             "rotate-y": 0,
@@ -417,9 +449,9 @@
         "id": "mongolabdelete",
         "class": "step",
         "data": {
-            "x": 45000,
-            "y": 0,
-            "z": 0,
+            "x": 12000,
+            "y": 1000,
+            "z": -500,
             "scale": 1,
             "rotate-x": 0,
             "rotate-y": 0,
@@ -432,6 +464,7 @@
         "id": "githubio",
         "class": "step",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 32000,
             "y": 8000,
@@ -443,6 +476,10 @@
 =======
             "x": 48000,
             "y": 0,
+=======
+            "x": 13000,
+            "y": 500,
+>>>>>>> change picture size, update effect
             "z": 0,
             "scale": 1,
             "rotate-x": 0,
@@ -456,6 +493,7 @@
         "id": "who",
         "class": "step",
         "data": {
+<<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 32000,
             "y": 8000,
@@ -467,8 +505,11 @@
 
 =======
             "x": 51000,
+=======
+            "x": 14000,
+>>>>>>> change picture size, update effect
             "y": 0,
-            "z": 0,
+            "z": 500,
             "scale": 1,
             "rotate-x": 0,
             "rotate-y": 0,

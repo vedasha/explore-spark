@@ -1,10 +1,21 @@
 <!doctype html>
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
+<<<<<<< feda269172f5ba0378296f440e023ebe36f9ccfe
 <html lang="en">
+=======
+<html lang="en" ng-app="app">
+
+>>>>>>> add impress effect
+=======
+<html lang="en">
+>>>>>>> add more rotate
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>impress</title>
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
+<<<<<<< feda269172f5ba0378296f440e023ebe36f9ccfe
 
     <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
 
@@ -15,14 +26,36 @@
     <link href="css/main.css" rel="stylesheet" />
 
 
+=======
+=======
+
+>>>>>>> add more rotate
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="bower_components/impress.js/css/impress-demo.css" rel="stylesheet" />
+    <link href="css/impressConsole.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
+>>>>>>> add impress effect
+=======
+
+
+>>>>>>> add more rotate
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
 
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
+<<<<<<< feda269172f5ba0378296f440e023ebe36f9ccfe
+=======
+>>>>>>> add more rotate
 <body>
 
 <div id="impress" class="steps">
 </div>
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
 
 
   <script src="bower_components/jquery/jquery.js"></script>
@@ -48,4 +81,69 @@
 
 
 </body>
+=======
+<body ng-controller="controller">
+    <div id="impress" class="steps">
+        <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+            <span class="try">explore effect of</span>
+            <h1>impress.js<sup>*</sup></h1>
+            <span class="footnote"><sup>*</sup> by mix transform</span>
+        </div>
+        <div class="step" 
+          data-x="{{location.x}}" 
+          data-y="{{location.y}}" 
+          data-z="{{location.z}}" 
+          data-rotate-x="{{location.rotateX}}"
+          data-rotate-y="{{location.rotateY}}"
+          data-rotate-z="{{location.rotateZ}}"
+          data-scale="{{location.scale}}" 
+          ng-repeat="location in locations1" on-finish-render="ngRepeatFinished">
+            <h1 ng-repeat="action in location.actions"> {{action}}</h1>
+        </div>
+
+    </div>
+    <div class="hint">
+        <p>Use a spacebar or arrow keys to navigate</p>
+    </div>
+    <script>
+    if ("ontouchstart" in document.documentElement) {
+        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+    }
+    </script>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <!-- // <script src="bower_components/handlebars/handlebars.js"></script> -->
+    <script src="bower_components/impress.js/js/impress.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    
+</body>
+
+>>>>>>> add impress effect
+=======
+
+
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/handlebars/handlebars.js"></script>
+  <script src="bower_components/impress.js/js/impress.js"></script>
+  <script src="js/impressConsole.js"></script>
+  <script src="js/main.js"></script>
+
+  <script id="step-template" type="x-handlebars-template">
+    <div id="{{id}}" class="{{class}}"{{#step data}}{{uri}}{{/step}}>{{{file}}}</div>
+  </script> 
+
+  <script>
+  // First, get sorted slide list
+
+  $.getJSON('steps/list.json', function(data) {
+    // Append ordered slides
+    appendSlides(data);
+    impress().init();
+    impressConsole().init();
+  });
+  </script>
+
+
+</body>
+>>>>>>> add more rotate
 </html>

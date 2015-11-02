@@ -12,6 +12,8 @@
             "rotate-y": 0,
             "rotate-z": 0
         }
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
+<<<<<<< feda269172f5ba0378296f440e023ebe36f9ccfe
     },
     {
         "uri": "prep.html",
@@ -54,6 +56,8 @@
             "rotate-y": 0,
             "rotate-z": 0
         }
+=======
+>>>>>>> add more rotate
     },
     {
         "uri": "plainmove.html",
@@ -196,6 +200,8 @@
         }
     },
     {
+<<<<<<< 5da7414ec2d515e131e258b1000bc5f5838b8014
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
         "uri": "plainrotate-90.html",
         "id": "plainrotate-90",
         "class": "step",
@@ -281,6 +287,7 @@
     },
     {
         "uri": "plainrotatey180start.html",
+<<<<<<< 4f8296df9c5f9ac10367443b5a2c205e22a3f21a
         "id": "plainrotatey180start",
         "class": "step sealed",
         "data": {
@@ -343,6 +350,24 @@
             "x": 48000,
             "y": 0,
             "z": 0,
+=======
+        "uri": "plainrotate180.html",
+        "id": "plainrotate180",
+        "class": "step",
+        "data": {
+            "x": 16000,
+            "y": 4000,
+            "z": -8000,
+>>>>>>> add more rotate
+=======
+        "uri": "plainrotate-90.html",
+        "id": "plainrotate-90",
+        "class": "step",
+        "data": {
+            "x": 20000,
+            "y": 0,
+            "z": 0,
+>>>>>>> add more rotate
             "scale": 2,
             "rotate-x": 0,
             "rotate-y": 0,
@@ -350,6 +375,8 @@
         }
     },
     {
+<<<<<<< 5da7414ec2d515e131e258b1000bc5f5838b8014
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
         "uri": "diagonalxy.html",
         "id": "diagonalxy",
         "class": "step",
@@ -359,11 +386,28 @@
             "z": 0,
             "scale": 2,
             "rotate-x": 0,
+=======
+        "uri": "plainrotatex90.html",
+        "id": "plainrotatex90",
+=======
+        "uri": "plainrotatex-90.html",
+        "id": "plainrotatex-90",
+>>>>>>> add more rotate
+        "class": "step",
+        "data": {
+            "x": 20000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+<<<<<<< 5da7414ec2d515e131e258b1000bc5f5838b8014
+            "rotate-x": 90,
+>>>>>>> add more rotate
             "rotate-y": 0,
             "rotate-z": 0
         }
     },
     {
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
         "uri": "diagonalxz.html",
         "id": "diagonalxz",
         "class": "step",
@@ -401,11 +445,15 @@
             "z": 0,
             "scale": 1,
             "rotate-x": 0,
+=======
+            "rotate-x": -90,
+>>>>>>> add more rotate
             "rotate-y": 0,
             "rotate-z": 0
         }
     },
     {
+<<<<<<< 5da7414ec2d515e131e258b1000bc5f5838b8014
         "uri": "diagonalrotatexy.html",
         "id": "diagonalrotatexy",
         "class": "step",
@@ -414,12 +462,33 @@
             "y": 0,
             "z": 0,
             "scale": 1,
+=======
+        "uri": "plainrotatey90.html",
+        "id": "plainrotatey90",
+=======
+        "uri": "plainrotatey-90.html",
+        "id": "plainrotatey-90",
+>>>>>>> add more rotate
+        "class": "step",
+        "data": {
+            "x": 20000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+<<<<<<< 5da7414ec2d515e131e258b1000bc5f5838b8014
+>>>>>>> add more rotate
             "rotate-x": 90,
             "rotate-y": 90,
+=======
+            "rotate-x": 0,
+            "rotate-y": -90,
+>>>>>>> add more rotate
             "rotate-z": 0
         }
     },
     {
+<<<<<<< 5da7414ec2d515e131e258b1000bc5f5838b8014
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
         "uri": "diagonalrotateyzstart.html",
         "id": "diagonalrotateyzstart",
         "class": "step",
@@ -443,11 +512,176 @@
             "z": 0,
             "scale": 1,
             "rotate-x": 0,
+=======
+        "uri": "plainrotatez90.html",
+        "id": "plainrotatez90",
+=======
+        "uri": "plainrotatez-90.html",
+        "id": "plainrotatez-90",
+>>>>>>> add more rotate
+        "class": "step",
+        "data": {
+            "x": 20000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+<<<<<<< 5da7414ec2d515e131e258b1000bc5f5838b8014
+            "rotate-x": 90,
+>>>>>>> add more rotate
             "rotate-y": 90,
             "rotate-z": 90
+=======
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": -90
         }
     },
     {
+        "uri": "plainrotate180.html",
+        "id": "plainrotate180",
+        "class": "step sealed",
+        "data": {
+            "x": 24000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "plainrotatex180.html",
+        "id": "plainrotatex180",
+        "class": "step sealed",
+        "data": {
+            "x": 24000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 180,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "plainrotate-180.html",
+        "id": "plainrotate-180",
+        "class": "step sealed",
+        "data": {
+            "x": 28000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "plainrotatex-180.html",
+        "id": "plainrotatex-180",
+        "class": "step sealed",
+        "data": {
+            "x": 28000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": -180,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "plainrotate180.html",
+=======
+>>>>>>> more fun words
+        "id": "plainrotatey180start",
+        "class": "step sealed",
+        "data": {
+            "x": 32000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "plainrotatey180.html",
+        "id": "plainrotatey180",
+        "class": "step sealed",
+        "data": {
+            "x": 32000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 180,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "plainrotatez180start.html",
+        "id": "plainrotatez180start",
+        "class": "step sealed",
+        "data": {
+            "x": 40000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "plainrotatez180.html",
+        "id": "plainrotatez180",
+        "class": "step sealed",
+        "data": {
+            "x": 40000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 180
+        }
+    },
+    {
+<<<<<<< 4f8296df9c5f9ac10367443b5a2c205e22a3f21a
+        "uri": "plainrotate-180.html",
+        "id": "plainrotatez-180start",
+        "class": "step sealed",
+        "data": {
+            "x": 44000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "plainrotatez-180.html",
+        "id": "plainrotatez-180",
+        "class": "step sealed",
+        "data": {
+            "x": 44000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": -180
+>>>>>>> add more rotate
+        }
+    },
+    {
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
         "uri": "rotatex45start.html",
         "id": "rotatex45start",
         "class": "step rotate45",
@@ -652,10 +886,38 @@
             "y": -700,
             "z": 0,
             "scale": 1,
+=======
+=======
+>>>>>>> more fun words
+        "uri": "diagonalmove.html",
+        "id": "diagonalmove",
+        "class": "step",
+        "data": {
+            "x": 48000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
             "rotate-x": 0,
             "rotate-y": 0,
             "rotate-z": 0
         }
+    },
+    {
+        "uri": "diagonalxy.html",
+        "id": "diagonalxy",
+        "class": "step",
+        "data": {
+            "x": 56000,
+            "y": 4000,
+            "z": 0,
+            "scale": 2,
+>>>>>>> add more rotate
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+<<<<<<< 38304f8898331c2026d5eb041815a3a9ba9aec34
+<<<<<<< 98ead9f5509191418b38d7397faad85afb5292a9
     },
     {
         "uri": "colorfulmotion.html",
@@ -673,3 +935,324 @@
     }
     
 ]
+=======
+    }
+]
+>>>>>>> add impress effect
+=======
+=======
+    },
+    {
+        "uri": "diagonalxz.html",
+        "id": "diagonalxz",
+        "class": "step",
+        "data": {
+            "x": 60000,
+            "y": 4000,
+            "z": 4000,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "diagonalyz.html",
+        "id": "diagonalyz",
+        "class": "step",
+        "data": {
+            "x": 60000,
+            "y": 8000,
+            "z": 8000,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "diagonalrotatexystart.html",
+        "id": "diagonalrotatexystart",
+        "class": "step",
+        "data": {
+            "x": 64000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "diagonalrotatexy.html",
+        "id": "diagonalrotatexy",
+        "class": "step",
+        "data": {
+            "x": 64000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 90,
+            "rotate-y": 90,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "diagonalrotatexzstart.html",
+        "id": "diagonalrotatexzstart",
+        "class": "step",
+        "data": {
+            "x": 68000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "diagonalrotatexz.html",
+        "id": "diagonalrotatexz",
+        "class": "step",
+        "data": {
+            "x": 68000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 90,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "diagonalrotateyzstart.html",
+        "id": "diagonalrotateyzstart",
+        "class": "step",
+        "data": {
+            "x": 72000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "diagonalrotateyz.html",
+        "id": "diagonalrotateyz",
+        "class": "step",
+        "data": {
+            "x": 72000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "rotatex45start.html",
+        "id": "rotatex45start",
+        "class": "step rotate45",
+        "data": {
+            "x": 76000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "rotatex45effect.html",
+        "id": "rotatex45effect",
+        "class": "step rotate45",
+        "data": {
+            "x": 76000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 45,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "rotatey45start.html",
+        "id": "rotatey45start",
+        "class": "step rotate45",
+        "data": {
+            "x": 80000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "rotatey45effect.html",
+        "id": "rotatey45effect",
+        "class": "step rotate45",
+        "data": {
+            "x": 80000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 45,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "rotatez45start.html",
+        "id": "rotatez45start",
+        "class": "step rotate45",
+        "data": {
+            "x": 84000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "rotatez45effect.html",
+        "id": "rotatez45effect",
+        "class": "step rotate45",
+        "data": {
+            "x": 84000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 45
+        }
+    },
+    {
+        "uri": "rotatexy45start.html",
+        "id": "rotatexy45start",
+        "class": "step rotate45",
+        "data": {
+            "x": 88000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "rotatexy45effect.html",
+        "id": "rotatexy45effect",
+        "class": "step rotate45",
+        "data": {
+            "x": 88000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 45,
+            "rotate-y": 45,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "rotatexz45start.html",
+        "id": "rotatexz45start",
+        "class": "step rotate45",
+        "data": {
+            "x": 92000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "rotatexz45effect.html",
+        "id": "rotatexz45effect",
+        "class": "step rotate45",
+        "data": {
+            "x": 92000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 45,
+            "rotate-y": 0,
+            "rotate-z": 45
+        }
+    },
+    {
+        "uri": "rotateyz45start.html",
+        "id": "rotateyz45start",
+        "class": "step rotate45",
+        "data": {
+            "x": 96000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "rotateyz45effect.html",
+        "id": "rotateyz45effect",
+        "class": "step rotate45",
+        "data": {
+            "x": 96000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 45,
+            "rotate-z": 45
+        }
+<<<<<<< 4f8296df9c5f9ac10367443b5a2c205e22a3f21a
+>>>>>>> add more rotate
+=======
+    },
+    {
+        "uri": "imagination.html",
+        "id": "imagination",
+        "class": "step fade",
+        "data": {
+            "x": 100000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "thanks.html",
+        "id": "thanks",
+        "class": "step fade",
+        "data": {
+            "x": 100000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+>>>>>>> more fun words
+    }
+]
+>>>>>>> add more rotate

@@ -13,20 +13,41 @@
     font-size: 78px;
     font-weight: bold;
 }
+<<<<<<< 5da7414ec2d515e131e258b1000bc5f5838b8014
+<<<<<<< feda269172f5ba0378296f440e023ebe36f9ccfe
 
 .step:not(.active) {
     opacity: 0.1;
 }
 
+=======
+
+<<<<<<< 4f8296df9c5f9ac10367443b5a2c205e22a3f21a
+/* fade out inactive slides */
+>>>>>>> add more rotate
+=======
+.step:not(.active) {
+    opacity: 0.1;
+}
+
+>>>>>>> more fun words
 .sealed:not(.active) {
     opacity: 0;
 }
 .sealed:(.active) {
     opacity: 1;
+<<<<<<< 38304f8898331c2026d5eb041815a3a9ba9aec34
+<<<<<<< 5da7414ec2d515e131e258b1000bc5f5838b8014
+=======
+>>>>>>> add more rotate
 }
 
 .rotate45:not(.active) {
     opacity: 0.1;
+<<<<<<< 4f8296df9c5f9ac10367443b5a2c205e22a3f21a
+<<<<<<< 38304f8898331c2026d5eb041815a3a9ba9aec34
+=======
+>>>>>>> more fun words
 }
 
 .fade:not(.active) {
@@ -34,6 +55,8 @@
 }
 .fade:(.active) {
     opacity: 0.98;
+<<<<<<< b1e05c5a405a315902ad6dedb78addb005950a1b
+<<<<<<< 4f8296df9c5f9ac10367443b5a2c205e22a3f21a
 }
 
 .in-3d {
@@ -159,3 +182,17 @@
 
 
 
+=======
+>>>>>>> add impress effect
+=======
+}
+>>>>>>> add more rotate
+=======
+}
+>>>>>>> add more rotate
+=======
+}
+>>>>>>> more fun words
+=======
+}
+>>>>>>> a bit correction

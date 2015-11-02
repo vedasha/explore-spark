@@ -1,7 +1,11 @@
 // Generated on 2015-11-03 using generator-impress 0.1.2
 'use strict';
 
+<<<<<<< feda269172f5ba0378296f440e023ebe36f9ccfe
 var LIVERELOAD_PORT = 35728;
+=======
+var LIVERELOAD_PORT = 35729;
+>>>>>>> add impress effect
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
@@ -29,7 +33,11 @@ module.exports = function (grunt) {
         },
         connect: {
             options: {
+<<<<<<< feda269172f5ba0378296f440e023ebe36f9ccfe
                 port: 9001,
+=======
+                port: 9000,
+>>>>>>> add impress effect
                 // change this to '0.0.0.0' to access the server from outside
                 hostname: 'localhost'
             },
