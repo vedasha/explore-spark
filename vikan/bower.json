@@ -4,11 +4,16 @@
   "dependencies": {
     "impress.js": "~0.5.3",
     "handlebars": "~1.0.0",
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
     "jquery": "~1.10",
     "angular": "~1.4.7"
 =======
     "jquery": "~1.10"
 >>>>>>> add vikan presentation
+=======
+    "jquery": "~1.10",
+    "angular": "~1.4.7"
+>>>>>>> add poll
   }
 }

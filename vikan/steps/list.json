@@ -45,14 +45,18 @@
         "id": "why",
         "class": "step",
         "data": {
-            "x": 3000,
+            "x": 4000,
             "y": 0,
-            "z": 500,
-            "scale": 1,
+            "z": 0,
+            "scale": 4,
             "rotate-x": 0,
             "rotate-y": 0,
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "rotate-z": 0
+>>>>>>> add poll
         }
     },
     {
@@ -60,6 +64,7 @@
         "id": "why-not",
         "class": "step its-in-3d",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 8000,
@@ -74,13 +79,20 @@
 =======
             "x": 3000,
 >>>>>>> change picture size, update effect
+=======
+            "x": 8000,
+>>>>>>> add poll
             "y": 0,
             "z": 0,
-            "scale": 1,
-            "rotate-x": 90,
+            "scale": 4,
+            "rotate-x": 0,
             "rotate-y": 0,
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "rotate-z": 0
+>>>>>>> add poll
         }
     },
     {
@@ -88,6 +100,7 @@
         "id": "whatis",
         "class": "step",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 8000,
@@ -122,11 +135,15 @@
             "x": 4000,
 >>>>>>> change picture size, update effect
             "y": 0,
+=======
+            "x": 8000,
+            "y": 4000,
+>>>>>>> add poll
             "z": 0,
-            "scale": 1,
+            "scale": 4,
             "rotate-x": 0,
-            "rotate-y": 90,
-            "rotate-z": 90
+            "rotate-y": 0,
+            "rotate-z": 0
         }
     },
     {
@@ -135,9 +152,10 @@
 >>>>>>> add vikan presentation
         "class": "step",
         "data": {
-            "x": 5000,
+            "x": 12000,
             "y": 0,
             "z": 0,
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "scale": 4,
             "rotate-x": 90,
@@ -149,6 +167,12 @@
             "rotate-y": 0,
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "scale": 4,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+>>>>>>> add poll
         }
     },
     {
@@ -156,13 +180,17 @@
         "id": "demo",
         "class": "step",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
+=======
+>>>>>>> add poll
             "x": 12000,
             "y": -8000,
             "z": 8000,
             "scale": 8,
             "rotate-x": 0,
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
             "rotate-y": 0,
             "rotate-z": 0
 =======
@@ -177,6 +205,10 @@
             "rotate-y": 0,
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "rotate-y": 0,
+            "rotate-z": 0
+>>>>>>> add poll
         }
     },
     {
@@ -184,6 +216,7 @@
         "id": "usingbootstrap",
         "class": "step",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 12000,
@@ -198,13 +231,20 @@
 =======
             "x": 7000,
 >>>>>>> change picture size, update effect
+=======
+            "x": 12000,
+>>>>>>> add poll
             "y": 0,
-            "z": 0,
-            "scale": 1,
+            "z": -18000,
+            "scale": 2,
             "rotate-x": 0,
             "rotate-y": 0,
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "rotate-z": 0
+>>>>>>> add poll
         }
     },
     {
@@ -212,6 +252,7 @@
         "id": "navbar",
         "class": "step",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 16000,
@@ -226,13 +267,20 @@
 =======
             "x": 8000,
 >>>>>>> change picture size, update effect
+=======
+            "x": 16000,
+>>>>>>> add poll
             "y": 0,
             "z": 0,
-            "scale": 1,
+            "scale": 2,
             "rotate-x": 0,
             "rotate-y": 0,
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "rotate-z": 0
+>>>>>>> add poll
         }
     },
     {
@@ -240,6 +288,7 @@
         "id": "avatar",
         "class": "step",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 16000,
@@ -254,13 +303,20 @@
 =======
             "x": 9000,
 >>>>>>> change picture size, update effect
+=======
+            "x": 16000,
+>>>>>>> add poll
             "y": 0,
             "z": 0,
-            "scale": 1,
-            "rotate-x": 0,
+            "scale": 2,
+            "rotate-x": 90,
             "rotate-y": 0,
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "rotate-z": 0
+>>>>>>> add poll
         }
     },
     {
@@ -268,6 +324,7 @@
         "id": "columns",
         "class": "step",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 16000,
@@ -289,6 +346,15 @@
             "rotate-y": 0,
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "x": 16000,
+            "y": 8000,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 0
+>>>>>>> add poll
         }
     },
     {
@@ -296,6 +362,7 @@
         "id": "dragndrop",
         "class": "step",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 20000,
@@ -380,12 +447,43 @@
 =======
             "x": 11000,
 >>>>>>> change picture size, update effect
+=======
+            "x": 20000,
+>>>>>>> add poll
             "y": 0,
             "z": 0,
-            "scale": 1,
+            "scale": 2,
             "rotate-x": 0,
-            "rotate-y": 45,
-            "rotate-z": 90
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "question.html",
+        "id": "question",
+        "class": "step",
+        "data": {
+            "x": 20000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 90,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "result.html",
+        "id": "result",
+        "class": "step",
+        "data": {
+            "x": 20000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 0
         }
     },
     {
@@ -393,13 +491,13 @@
         "id": "mongolab",
         "class": "step",
         "data": {
-            "x": 12000,
-            "y": 0,
+            "x": 24000,
+            "y": 4000,
             "z": 0,
-            "scale": 1,
-            "rotate-x": 0,
-            "rotate-y": 90,
-            "rotate-z": 90
+            "scale": 2,
+            "rotate-x": 45,
+            "rotate-y": 45,
+            "rotate-z": 0
         }
     },
     {
@@ -407,13 +505,13 @@
         "id": "mongolabsteps",
         "class": "step",
         "data": {
-            "x": 12000,
-            "y": -1200,
-            "z": 2000,
-            "scale": 1,
+            "x": 28000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
             "rotate-x": 0,
-            "rotate-y": 0,
-            "rotate-z": 90
+            "rotate-y": 90,
+            "rotate-z": 0
         }
     },
     {
@@ -421,13 +519,13 @@
         "id": "mongolabquery",
         "class": "step",
         "data": {
-            "x": 12000,
+            "x": 28000,
             "y": 0,
-            "z": 1000,
-            "scale": 1,
-            "rotate-x": 0,
+            "z": 8000,
+            "scale": 2,
+            "rotate-x": 90,
             "rotate-y": 0,
-            "rotate-z": 90
+            "rotate-z": 0
         }
     },
     {
@@ -435,13 +533,13 @@
         "id": "mongolabupdate",
         "class": "step",
         "data": {
-            "x": 12000,
-            "y": 1000,
-            "z": 1000,
-            "scale": 1,
-            "rotate-x": 0,
+            "x": 36000,
+            "y": 8000,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 90,
             "rotate-y": 0,
-            "rotate-z": 90
+            "rotate-z": 0
         }
     },
     {
@@ -449,11 +547,11 @@
         "id": "mongolabdelete",
         "class": "step",
         "data": {
-            "x": 12000,
-            "y": 1000,
-            "z": -500,
-            "scale": 1,
-            "rotate-x": 0,
+            "x": 32000,
+            "y": 4000,
+            "z": 8000,
+            "scale": 2,
+            "rotate-x": 90,
             "rotate-y": 0,
             "rotate-z": 90
 >>>>>>> add vikan presentation
@@ -464,6 +562,7 @@
         "id": "githubio",
         "class": "step",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
             "x": 32000,
@@ -480,12 +579,20 @@
             "x": 13000,
             "y": 500,
 >>>>>>> change picture size, update effect
+=======
+            "x": 32000,
+            "y": 8000,
+>>>>>>> add poll
             "z": 0,
-            "scale": 1,
-            "rotate-x": 0,
+            "scale": 2,
+            "rotate-x": 90,
             "rotate-y": 0,
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "rotate-z": 0
+>>>>>>> add poll
         }
     },
     {
@@ -493,12 +600,16 @@
         "id": "who",
         "class": "step",
         "data": {
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 <<<<<<< eefaf68dbda48ebd4996732d9a997af49af81506
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
+=======
+>>>>>>> add poll
             "x": 32000,
             "y": 8000,
             "z": 0,
             "scale": 2,
+<<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
             "rotate-x": 0,
             "rotate-y": 0,
             "rotate-z": 0
@@ -515,6 +626,12 @@
             "rotate-y": 0,
             "rotate-z": 90
 >>>>>>> add vikan presentation
+=======
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+
+>>>>>>> add poll
         }
     }
 ]
