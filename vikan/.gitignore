@@ -1,7 +1,11 @@
 node_modules
 bower_components
 *.log
+<<<<<<< d68bb3b485d1310cc81ff0ddafd342708da7dca9
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
 .DS_Store
 =======
 >>>>>>> add vikan presentation
+=======
+.DS_Store
+>>>>>>> add notes

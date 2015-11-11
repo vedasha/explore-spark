@@ -195,4 +195,131 @@
 >>>>>>> more fun words
 =======
 }
+<<<<<<< ae2cd78a2446052590f4b22e2bf842ecf395b338
 >>>>>>> a bit correction
+=======
+
+.in-3d {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style:    preserve-3d; /* Y U need this Firefox?! */
+    -ms-transform-style:     preserve-3d;
+    -o-transform-style:      preserve-3d;
+    transform-style:         preserve-3d;
+}
+
+.present .transition-slow {
+	-webkit-transition: 4.5s;
+    -moz-transition:    4.5s;
+    -ms-transition:     4.5s;
+    -o-transition:      4.5s;
+    transition:         4.5s;
+}
+
+.present .transition-fast {
+	-webkit-transition: 1s;
+    -moz-transition:    1s;
+    -ms-transition:     1s;
+    -o-transition:      1s;
+    transition:         1s;
+}
+
+.present .sink-much {
+    -webkit-transform: translateZ(-140px);
+    -moz-transform:    translateZ(-140px);
+    -ms-transform:     translateZ(-140px);
+    -o-transform:      translateZ(-140px);
+    transform:         translateZ(-140px);
+}
+
+.present .sink-little {
+    -webkit-transform: translateZ(-40px);
+    -moz-transform:    translateZ(-40px);
+    -ms-transform:     translateZ(-40px);
+    -o-transform:      translateZ(-40px);
+    transform:         translateZ(-40px);
+}
+
+.present .floating-much {
+    -webkit-transform: translateZ(140px);
+    -moz-transform:    translateZ(140px);
+    -ms-transform:     translateZ(140px);
+    -o-transform:      translateZ(140px);
+    transform:         translateZ(140px);
+}
+
+.present .floating-little {
+    -webkit-transform: translateZ(40px);
+    -moz-transform:    translateZ(40px);
+    -ms-transform:     translateZ(40px);
+    -o-transform:      translateZ(40px);
+    transform:         translateZ(40px);
+}
+
+.present .delay-short {
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay:    0.5s;
+    -ms-transition-delay:     0.5s;
+    -o-transition-delay:      0.5s;
+    transition-delay:         0.5s;
+}
+
+.present .delay-long {
+    -webkit-transition-delay: 5s;
+    -moz-transition-delay:    5s;
+    -ms-transition-delay:     5s;
+    -o-transition-delay:      5s;
+    transition-delay:         5s;
+}
+
+.present .rotating {
+    -webkit-transform: rotate(-10deg);
+    -moz-transform:    rotate(-10deg);
+    -ms-transform:     rotate(-10deg);
+    -o-transform:      rotate(-10deg);
+    transform:         rotate(-10deg);
+}
+
+.present .scaling-smaller {
+    -webkit-transform: scale(0.5);
+    -moz-transform:    scale(0.5);
+    -ms-transform:     scale(0.5);
+    -o-transform:      scale(0.5);
+    transform:         scale(0.5);
+}
+
+.present .scaling-bigger {
+    -webkit-transform: scale(2);
+    -moz-transform:    scale(2);
+    -ms-transform:     scale(2);
+    -o-transform:      scale(2);
+    transform:         scale(2);
+}
+
+
+.colorful:nth-of-type(7n+1){
+	color: #ff7f0e;
+}
+
+.colorful:nth-of-type(7n+2){
+	color: #1f77b4;
+}
+
+.colorful:nth-of-type(7n+3){
+	color: #2ca02c;
+}
+
+.colorful:nth-of-type(7n+4){
+	color: #9467bd;
+}
+
+.colorful:nth-of-type(7n+5){
+	color: #17becf;
+}
+
+.colorful:nth-of-type(7n+6){
+	color: #bcbd22;
+}
+
+
+
+>>>>>>> add motion

@@ -1252,7 +1252,38 @@
             "rotate-y": 0,
             "rotate-z": 0
         }
+<<<<<<< ae2cd78a2446052590f4b22e2bf842ecf395b338
 >>>>>>> more fun words
+=======
+    },
+    {
+        "uri": "onemorething.html",
+        "id": "onemorething",
+        "class": "step",
+        "data": {
+            "x": 104000,
+            "y": -700,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "colorfulmotion.html",
+        "id": "colorfulmotion",
+        "class": "step in-3d",
+        "data": {
+            "x": 104000,
+            "y": -900,
+            "z": -100,
+            "scale": 1,
+            "rotate-x": -40,
+            "rotate-y": 10,
+            "rotate-z": 0
+        }
+>>>>>>> add motion
     }
 ]
 >>>>>>> add more rotate
