@@ -99,11 +99,15 @@ var publishQuestion = function(options) {
     });
 }
 
+<<<<<<< d68bb3b485d1310cc81ff0ddafd342708da7dca9
 <<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
 var updateGraph = function(votes, options, totalpolls) {
 =======
 var updateGraph = function(votes, options) {
 >>>>>>> add poll
+=======
+var updateGraph = function(votes, options, totalpolls) {
+>>>>>>> add notes
     var highestVote = 0;
     for (var i in votes) {
         if (votes[i] > highestVote) {
@@ -111,12 +115,17 @@ var updateGraph = function(votes, options) {
         }
     }
 
+<<<<<<< d68bb3b485d1310cc81ff0ddafd342708da7dca9
 <<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
     var rate = 400 / highestVote;
     // d3.select('#totalpolls').text(totalpolls);
 =======
     var rate = 400 / highestVote
 >>>>>>> add poll
+=======
+    var rate = 400 / highestVote;
+    // d3.select('#totalpolls').text(totalpolls);
+>>>>>>> add notes
     d3.select('#poll-result').selectAll("div")
         .data(votes).enter().append("div").attr("class", "bar").style("height", 0)
         .transition().duration(3000)
@@ -145,6 +154,7 @@ var fetchResult = function(options) {
         }
 
         console.log(votes);
+<<<<<<< d68bb3b485d1310cc81ff0ddafd342708da7dca9
 <<<<<<< 295e6c2a15848a54cb55190a1293d5ac5b14815a
         updateGraph(votes, options, data.length);
     })
@@ -153,6 +163,9 @@ var fetchResult = function(options) {
 >>>>>>> add vikan presentation
 =======
         updateGraph(votes, options);
+=======
+        updateGraph(votes, options, data.length);
+>>>>>>> add notes
     })
 }
 >>>>>>> add poll

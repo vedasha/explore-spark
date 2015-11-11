@@ -21,4 +21,8 @@ project/plugins/project/
 node_modules
 bower_components
 *.log
+<<<<<<< d68bb3b485d1310cc81ff0ddafd342708da7dca9
 >>>>>>> add vikan presentation
+=======
+.DS_Store
+>>>>>>> add notes

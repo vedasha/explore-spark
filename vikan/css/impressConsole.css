@@ -38,10 +38,14 @@ div#notes {
 
 div#notes p {
     margin-top: 0;
+<<<<<<< d68bb3b485d1310cc81ff0ddafd342708da7dca9
 <<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
     font-size: larger;
 =======
 >>>>>>> add vikan presentation
+=======
+    font-size: larger;
+>>>>>>> add notes
 }
 
 iframe#slideView {
