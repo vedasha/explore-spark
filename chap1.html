@@ -1,0 +1,319 @@
+<div class="chapter" id="chapid_1">
+<h1><span class="label">Chapter 1. </span>Introduction to Data Analysis with Spark</h1>
+
+
+<p>This chapter provides a high-level overview of what Apache Spark is. If you are already familiar with Apache Spark and its components, feel free to jump ahead to <a data-type="xref" href="ch02.html#ch_getting_started">Chapter&nbsp;2</a>.</p>
+
+
+
+
+
+
+<section data-type="sect1" data-pdf-bookmark="What Is Apache Spark?"><div class="sect1" id="idp5311424">
+<h1>What Is Apache Spark?</h1>
+
+<p>Apache Spark is a cluster computing platform designed to be <em>fast</em> and <em>general-purpose</em>.</p>
+
+<p>On the speed side, Spark extends the popular MapReduce model to efficiently support more types of computations, including interactive queries and stream processing.
+Speed is important in processing large datasets, as it means the difference between exploring data interactively and waiting minutes or hours.
+One of the main features Spark offers for speed is the ability to run computations in memory, but the system is also more efficient than MapReduce for complex applications running on disk.</p>
+
+<p>On the generality side, Spark is designed to cover a wide range of workloads that previously required separate distributed systems, including batch applications, iterative algorithms, interactive queries, and streaming.
+By supporting these workloads in the same engine, Spark makes it easy and inexpensive to <em>combine</em> different processing types, which is often necessary in production data analysis pipelines.
+In addition, it reduces the management burden of maintaining separate tools.</p>
+
+<p>Spark is designed to be highly accessible, offering simple APIs in Python, Java, Scala, and SQL, and rich built-in libraries.
+It also integrates closely with other Big Data tools.
+In particular, Spark can run in Hadoop clusters and access any Hadoop data source, including Cassandra.</p>
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect1" data-pdf-bookmark="A Unified Stack"><div class="sect1" id="idp57920">
+<h1>A Unified Stack</h1>
+
+<p>The Spark project contains multiple closely integrated components.<a data-type="indexterm" data-primary="Spark" data-secondary="closely integrated components" id="idp59520"></a> At its core, Spark is a “computational engine” that is responsible for scheduling, distributing, and monitoring applications consisting of many computational tasks across many worker machines, or a <em>computing cluster</em>.<a data-type="indexterm" data-primary="computing cluster" id="idp61280"></a>
+Because the core engine of Spark is both fast and general-purpose, it powers multiple higher-level components specialized for various workloads, such as SQL or machine learning. These components are designed to interoperate closely, letting you combine them like libraries in a software project.</p>
+
+<p>A philosophy of tight integration has several benefits. First, all libraries and higher-level components in the stack benefit from improvements at the lower layers. For example, when Spark’s core engine adds an optimization, SQL and machine learning libraries automatically speed up as well. Second, the costs associated with running the stack are minimized, because instead of running 5–10 independent software systems, an organization needs to run only one. These costs include deployment, maintenance, testing, support, and others. This also means that each time a new component is added to the Spark stack, every organization that uses Spark will immediately be able to try this new component.
+This changes the cost of trying out a new type of data analysis from downloading, deploying, and learning a new software project to upgrading Spark.</p>
+
+<p>Finally, one of the largest advantages of tight integration is the ability to build applications that seamlessly combine different processing models. For example, in Spark you can write one application that uses machine learning to classify data in real time as it is ingested from streaming sources. Simultaneously, analysts can query the resulting data, also in real time, via SQL (e.g., to join the data with unstructured logfiles). In addition, more sophisticated data engineers and data scientists can access the same data via the Python shell for ad hoc analysis. Others might access the data in standalone batch applications. All the while, the IT team has to maintain only one system.</p>
+
+<p>Here we will briefly introduce each of Spark’s components, shown in <a data-type="xref" href="#figid_overview_stack">Figure&nbsp;1-1</a>.</p>
+
+<figure><div id="figid_overview_stack" class="figure">
+<img src="lnsp_0101.png" alt="lnsp 0101" width="1078" height="562">
+<h6><span class="label">Figure 1-1. </span>The Spark stack</h6>
+</div></figure>
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="Spark Core"><div class="sect2" id="idp68256">
+<h2>Spark Core</h2>
+
+<p>Spark Core contains the basic functionality of Spark,<a data-type="indexterm" data-primary="Spark Core" id="idp69680"></a> including components for task scheduling, memory management, fault recovery, interacting with storage systems, and more. Spark Core is also home to the API that defines <em>resilient distributed datasets</em> (RDDs),<a data-type="indexterm" data-primary="resilient distributed datasets (RDDs)" id="idp5277504"></a> which are Spark’s main programming abstraction. RDDs represent a collection of items distributed across many compute nodes that can be manipulated in parallel. Spark Core provides many APIs for building and manipulating these <span class="keep-together">collections.</span></p>
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="Spark SQL"><div class="sect2" id="idp5279424">
+<h2>Spark SQL</h2>
+
+<p>Spark SQL is Spark’s package for working with structured data.<a data-type="indexterm" data-primary="Spark SQL" id="idp5280752"></a> It allows querying data via SQL as well as the<a data-type="indexterm" data-primary="Hive Query Language (HQL)" id="idp5281664"></a> Apache Hive variant of SQL—called the Hive Query Language (HQL)—and it supports many sources of data, including Hive tables, Parquet, and JSON. Beyond providing a SQL interface to Spark, Spark SQL allows developers to intermix SQL queries with the programmatic data manipulations supported by RDDs in Python, Java, and Scala, all within a single application, thus combining SQL with complex analytics. This tight integration with the rich computing environment provided by Spark makes Spark SQL unlike any other open source data warehouse tool. Spark SQL was added to Spark in version 1.0.</p>
+
+<p>Shark was an older SQL-on-Spark project out of the University of California, Berkeley, that modified Apache Hive to run on Spark. It has now been replaced by Spark SQL to provide better integration with the Spark engine and language APIs.</p>
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="Spark Streaming"><div class="sect2" id="idp5283984">
+<h2>Spark Streaming</h2>
+
+<p>Spark Streaming is a Spark component that enables processing of live streams of data.<a data-type="indexterm" data-primary="Spark Streaming" id="idp5285312"></a> Examples of data streams include logfiles generated by production web servers, or queues of messages containing status updates posted by users of a web service. Spark Streaming provides an API for manipulating data streams that closely matches the Spark Core’s RDD API, making it easy for programmers to learn the project and move between applications that manipulate data stored in memory, on disk, or arriving in real time. Underneath its API, Spark Streaming was designed to provide the same degree of fault tolerance, throughput, and scalability as Spark Core.</p>
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="MLlib"><div class="sect2" id="idp5286976">
+<h2>MLlib</h2>
+
+<p>Spark comes with a library containing common <a data-type="indexterm" data-primary="machine learning (ML) functionality (MLlib)" id="idp5232320"></a>machine learning (ML) functionality,<a data-type="indexterm" data-primary="MLlib" id="idp5233216"></a> called MLlib. MLlib provides multiple types of machine learning algorithms, including classification, regression, clustering, and collaborative filtering, as well as supporting functionality such as model evaluation and data import. It also provides some lower-level ML primitives, including a generic gradient descent optimization algorithm. All of these methods are designed to scale out across a cluster.</p>
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="GraphX"><div class="sect2" id="idp5234704">
+<h2>GraphX</h2>
+
+<p>GraphX is a library <a data-type="indexterm" data-primary="GraphX library" id="idp5236000"></a>for manipulating graphs (e.g., a social network’s friend graph) and performing graph-parallel computations. Like Spark Streaming and Spark SQL, GraphX extends the Spark RDD API, allowing us to create a directed graph with arbitrary properties attached to each vertex and edge. GraphX also provides various operators for manipulating graphs (e.g., <code>subgraph</code> and <code>mapVertices</code>) and a library of common graph algorithms (e.g., PageRank and triangle counting).</p>
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="Cluster Managers"><div class="sect2" id="idp5238416">
+<h2>Cluster Managers</h2>
+
+<p>Under the hood, Spark is designed to efficiently scale up from one to many thousands of compute nodes.
+To achieve this while maximizing flexibility, Spark can run over a variety of <em>cluster managers</em>, including<a data-type="indexterm" data-primary="cluster managers" id="idp5240448"></a> Hadoop YARN, Apache Mesos, and a simple cluster manager included in Spark itself called the Standalone Scheduler.
+If you are just installing Spark on an empty set of machines, the Standalone Scheduler provides an easy way to get started; if you already have a Hadoop YARN or Mesos cluster, however, Spark’s support for these cluster managers allows your applications to also run on them. <a data-type="xref" href="ch07.html#chapid_running_on_a_cluster">Chapter&nbsp;7</a> explores the different options and how to choose the correct cluster manager.</p>
+</div></section>
+
+
+
+
+
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect1" data-pdf-bookmark="Who Uses Spark, and for What?"><div class="sect1" id="idp58544">
+<h1>Who Uses Spark, and for What?</h1>
+
+<p>Because Spark is a general-purpose framework for cluster computing, it is used for a diverse range of applications.<a data-type="indexterm" data-primary="Spark" data-secondary="uses of" id="idp5244336"></a> In the <a href="preface01.html#frontmatter">Preface</a> we outlined two groups of readers that this book targets: data scientists and engineers. Let’s take a closer look at each group and how it uses Spark. Unsurprisingly, the typical use cases differ between the two, but we can roughly classify them into two categories, <em>data science</em> and <em>data</em> <span class="keep-together"><em>applications</em>.</span></p>
+
+<p>Of course, these are imprecise disciplines and usage patterns, and many folks have skills from both, sometimes playing the role of the investigating data scientist, and then “changing hats” and writing a hardened data processing application. Nonetheless, it can be illuminating to consider the two groups and their respective use cases separately.</p>
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="Data Science Tasks"><div class="sect2" id="idp5332912">
+<h2>Data Science Tasks</h2>
+
+<p>Data science, a discipline that<a data-type="indexterm" data-primary="data science tasks" id="idp5334528"></a> has been emerging over the past few years, centers on analyzing data. While there is no standard definition, for our purposes a <em>data scientist</em> is somebody whose main task is to analyze and model data.
+Data scientists may have experience with SQL, statistics, predictive modeling (machine learning), and programming, usually in Python, Matlab, or R. Data scientists also have experience with techniques necessary to transform data into formats that can be analyzed for <a data-type="indexterm" data-primary="data wrangling" id="idp5336224"></a>insights (sometimes referred to as <em>data wrangling</em>).</p>
+
+<p>Data scientists use their skills to analyze data with the goal of answering a question or discovering insights. Oftentimes, their workflow involves ad hoc analysis, so they use interactive shells (versus building complex applications) that let them see results of queries and snippets of code in the least amount of time.
+Spark’s speed and simple APIs shine for this purpose, and its built-in libraries mean that many algorithms are available out of the box.</p>
+
+<p>Spark supports the different tasks of data science with a number of components. The Spark shell makes <a data-type="indexterm" data-primary="PySpark shell" id="idp5338944"></a>it easy to do interactive data analysis using Python or Scala.
+Spark SQL also has a separate SQL shell <a data-type="indexterm" data-primary="SQL shell" id="idp5339888"></a>that can be used to do data exploration using SQL, or Spark SQL can be used as part of a regular Spark program or in the Spark shell.
+Machine learning and data analysis is supported through the MLLib libraries. In addition, there is support for calling out to external programs in Matlab or R. Spark enables data
+scientists to tackle problems with larger data sizes than they could before with tools like R or Pandas.</p>
+
+<p>Sometimes, after the initial exploration phase, the work of a data scientist will be “productized,” or extended, hardened (i.e., made fault-tolerant), and tuned to become a production data processing application, which itself is a component of a business application. For example, the initial investigation of a data scientist might lead to the creation of a production recommender system that is integrated into a web application and used to generate product suggestions to users. Often it is a different person or team that leads the process of productizing the work of the data scientists, and that person is often an engineer.</p>
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect2" data-pdf-bookmark="Data Processing Applications"><div class="sect2" id="idp5342288">
+<h2>Data Processing Applications</h2>
+
+<p>The other main use case of Spark can be described in the context of the engineer persona.<a data-type="indexterm" data-primary="data processing applications" id="idp5218256"></a> For our purposes here, we think of engineers as a large class of software developers who use Spark to build production data processing applications. These developers usually have an understanding of the principles of software engineering, such as encapsulation, interface design, and object-oriented programming. They frequently have a degree in computer science. They use their engineering skills to design and build software systems that implement a business use case.</p>
+
+<p>For engineers, Spark provides a simple way to parallelize these applications across clusters, and hides the complexity of distributed systems programming, network communication, and fault tolerance. The system gives them enough control to monitor, inspect, and tune applications while allowing them to implement common tasks quickly. The modular nature of the API (based on passing distributed collections of objects) makes it easy to factor work into reusable libraries and test it locally.</p>
+
+<p>Spark’s users choose to use it for their data processing applications because it provides a wide variety of functionality, is easy to learn and use, and is mature and <span class="keep-together">reliable.</span></p>
+</div></section>
+
+
+
+
+
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect1" data-pdf-bookmark="A Brief History of Spark"><div class="sect1" id="idp5221920">
+<h1>A Brief History of Spark</h1>
+
+<p>Spark is an open source project that has been built and is maintained by a thriving and diverse community of developers.<a data-type="indexterm" data-primary="Spark" data-secondary="brief history of" id="idp5223600"></a>
+If you or your organization are trying Spark for the first time, you might be interested in the history of the project.
+Spark started in 2009 as a research project in the UC Berkeley RAD Lab, later to become the AMPLab.
+The researchers in the lab had previously been working on Hadoop MapReduce, and observed that MapReduce was inefficient for iterative and interactive computing jobs.
+Thus, from the beginning, Spark was designed to be fast for interactive queries and iterative algorithms, bringing in ideas like support for in-memory storage and efficient fault recovery.</p>
+
+<p>Research papers were published about Spark at academic conferences and soon after its creation in 2009, it was already 10–20× faster than MapReduce for certain jobs.</p>
+
+<p>Some of Spark’s first users were other groups inside UC Berkeley, including machine learning researchers such as the Mobile Millennium project, which used Spark to monitor and predict traffic congestion in the San Francisco Bay Area. In a very short time, however, many external organizations began using Spark, and today, over 50 organizations list themselves on the <a href="http://bit.ly/1yx195p">Spark PoweredBy page</a>, and dozens speak about their use cases at Spark community events such as <a href="http://www.meetup.com/spark-users/">Spark Meetups</a> and the <a href="http://spark-summit.org">Spark Summit</a>. In addition to UC Berkeley, major contributors to Spark include Databricks, Yahoo!, and Intel.</p>
+
+<p>In 2011, the AMPLab started to develop higher-level components on Spark, such as Shark (Hive on Spark)<a xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" data-type="noteref" id="idp5229424-marker" href="ch01.html#idp5229424"><sup>1</sup></a> and Spark Streaming. <a data-type="indexterm" data-primary="Berkeley Data Analytics Stack (BDAS)" id="idp5230112"></a>These and other components are sometimes referred to as the <a href="https://amplab.cs.berkeley.edu/software/">Berkeley Data Analytics Stack (BDAS)</a>.</p>
+
+<p>Spark was first open sourced in March 2010, and was transferred to the Apache Software Foundation<a data-type="indexterm" data-primary="Apache Software Foundation" data-secondary="Spark" id="idp4981456"></a> in June 2013, where it is now a top-level project.</p>
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect1" data-pdf-bookmark="Spark Versions and Releases"><div class="sect1" id="idp4982752">
+<h1>Spark Versions and Releases</h1>
+
+<p>Since its creation, Spark has been a very active project<a data-type="indexterm" data-primary="Spark" data-secondary="versions and releases" id="idp4984016"></a> and community, with the number of contributors growing with each release. Spark 1.0 had over 100 individual contributors. Though the level of activity has rapidly grown, the community continues to release updated versions of Spark on a regular schedule. Spark 1.0 was released in May 2014. This book focuses primarily on Spark 1.1.0 and beyond, though most of the concepts and examples also work in earlier versions.</p>
+</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-type="sect1" data-pdf-bookmark="Storage Layers for Spark"><div class="sect1" id="idp4985808">
+<h1>Storage Layers for Spark</h1>
+
+<p>Spark can create distributed datasets from any file stored in<a data-type="indexterm" data-primary="Spark" data-secondary="storage layers" id="idp4987072"></a><a data-type="indexterm" data-primary="storage layers for Spark" id="idp4988128"></a> the Hadoop distributed filesystem (HDFS) or other storage systems supported by the Hadoop APIs (including your local filesystem, Amazon S3, Cassandra, Hive, HBase, etc.).
+It’s important to remember that Spark does not require Hadoop; it simply has support for storage systems
+implementing the Hadoop APIs.
+Spark supports text files, SequenceFiles, Avro, Parquet, and any other Hadoop InputFormat. We will look at interacting with these data sources in <a data-type="xref" href="ch05.html#chap-rdd-loadsave">Chapter&nbsp;5</a>.</p>
+</div></section>
+
+
+
+
+
+
+
+<div data-type="footnotes"><p xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" data-type="footnote" id="idp5229424"><a href="ch01.html#idp5229424-marker"><sup>1</sup></a> Shark has been replaced by Spark SQL.</p></div></div>
