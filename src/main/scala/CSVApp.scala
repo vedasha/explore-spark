@@ -29,7 +29,7 @@ object CSVApp {
 //    println(dfTrain.first())
 
 
-    val train = join(dfTrain).to
+    val train = join(dfTrain)
     val eval = join(dfTest)
 
     train.printSchema()
@@ -37,13 +37,12 @@ object CSVApp {
 
     // Split data into training (60%) and test (40%).
     val splits = train.randomSplit(Array(0.6, 0.4), seed = 11L)
-    MLUtils.
     val training = splits(0).cache()
     val test = splits(1)
 
     // Run training algorithm to build the model
     val numIterations = 100
-    val model = SVMWithSGD.train(training, numIterations)
+//    val model = SVMWithSGD.train(training, numIterations)
 
     // Clear the default threshold.
 //    model.clearThreshold()
