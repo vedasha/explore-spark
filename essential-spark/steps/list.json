@@ -1,0 +1,142 @@
+[
+    {
+        "uri": "start.html",
+        "id": "title",
+        "class": "step title",
+        "data": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "scale": 4,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "bigdata.html",
+        "id": "bigdata",
+        "class": "step bulletin",
+        "data": {
+            "x": 3000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "bigdata-buzzword.html",
+        "id": "bigdata-buzzword",
+        "class": "step bulletin",
+        "data": {
+            "x": 2800,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "bigdata-definition.html",
+        "id": "bigdata-definition",
+        "class": "step bulletin",
+        "data": {
+            "x": 2600,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "bigdata-how.html",
+        "id": "bigdata-how",
+        "class": "step bulletin",
+        "data": {
+            "x": 3000,
+            "y": 1000,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "bigdata-distribute.html",
+        "id": "bigdata-distribute",
+        "class": "step bulletin",
+        "data": {
+            "x": 3000,
+            "y": 1200,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "bigdata-distribute-everything.html",
+        "id": "bigdata-distribute-everything",
+        "class": "step bulletin",
+        "data": {
+            "x": 3000,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "bigdata-solution.html",
+        "id": "bigdata-solution",
+        "class": "step bulletin",
+        "data": {
+            "x": 3200,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "distribute-storage.html",
+        "id": "distribute-storage",
+        "class": "step",
+        "data": {
+            "x": 4400,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "distribute-processing.html",
+        "id": "distribute-processing",
+        "class": "step",
+        "data": {
+            "x": 5200,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    }
+]
