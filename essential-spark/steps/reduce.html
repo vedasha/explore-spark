@@ -1,0 +1,17 @@
+<h2>Reduce</h2>
+
+<div class="common config all">
+<pre>
+<code class="scala code">val category = 1
+val map2RDD = mapRDD.map(row => (row(category), 1))
+val reduceRDD = map2RDD.reduceByKey((a, b) => a + b)
+</code></pre>
+</div>
+<div>
+<img src="../img/reduce.png">
+</div>
+<div class="notes">
+the reduceByKey can be replaced by countByKey
+val countedRDD = mapRDD.countByKey
+</div>
+

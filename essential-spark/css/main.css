@@ -9,6 +9,10 @@
     display:none;
 }
 
+.code {
+    font-size: 28px;
+}
+
 .step h2 {
     font-size: 78px;
     font-weight: bold;
@@ -60,6 +64,14 @@
     -ms-transition:     4.5s;
     -o-transition:      4.5s;
     transition:         4.5s;
+}
+
+.step.present {
+    z-index: 0;
+}
+
+.step:not(.present) {
+    z-index: -1;
 }
 
 .present .transition-fast {

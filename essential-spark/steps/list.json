@@ -130,7 +130,105 @@
         "id": "distribute-processing",
         "class": "step",
         "data": {
-            "x": 5200,
+            "x": 4365,
+            "y": 1410,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "load-source.html",
+        "id": "load-source",
+        "class": "step",
+        "data": {
+            "x": 6800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "map.html",
+        "id": "map",
+        "class": "step",
+        "data": {
+            "x": 7600,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "reduce.html",
+        "id": "reduce",
+        "class": "step",
+        "data": {
+            "x": 8400,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "nothing-happen-yet.html",
+        "id": "nothing-happen-yet",
+        "class": "step",
+        "data": {
+            "x": 8400,
+            "y": 2400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "lets-action.html",
+        "id": "lets-action",
+        "class": "step",
+        "data": {
+            "x": 8400,
+            "y": 3400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "deployment.html",
+        "id": "deployment",
+        "class": "step",
+        "data": {
+            "x": 9200,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "job-graph.html",
+        "id": "job-graph",
+        "class": "step",
+        "data": {
+            "x": 10000,
             "y": 1400,
             "z": 0,
             "scale": 1,
