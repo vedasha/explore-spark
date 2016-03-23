@@ -236,5 +236,75 @@
             "rotate-y": 0,
             "rotate-z": 90
         }
+    },
+    {
+        "uri": "bigdata-flow.html",
+        "id": "bigdata-flow",
+        "class": "step",
+        "data": {
+            "x": 10800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "sqoop-data.html",
+        "id": "sqoop-data",
+        "class": "step",
+        "data": {
+            "x": 11600,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "sqoop-mysql.html",
+        "id": "sqoop-mysql",
+        "class": "step",
+        "data": {
+            "x": 12400,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "import-csv.html",
+        "id": "import-csv",
+        "class": "step",
+        "data": {
+            "x": 13200,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "interactive-with-sql.html",
+        "id": "interactive-with-sql",
+        "class": "step",
+        "data": {
+            "x": 14000,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
     }
 ]

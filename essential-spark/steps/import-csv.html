@@ -1,0 +1,27 @@
+<h2>Import CSV</h2>
+
+<div class="common config all">
+<pre>
+<code class="shell code">
+hadoop fs -mkdir /user/hive/warehouse/&lt;table&gt;
+hadoop fs -copyFromLocal ~/&lt;table&gt;.csv \
+/user/hive/warehouse/&lt;table&gt;
+</code>
+</pre>
+</div>
+
+<div class="common config all">
+<pre>
+<code class="hive code">
+CREATE EXTERNAL TABLE &lt;table&gt;(
+&lt;col1 col1type,&gt;&lt;col1 col1type,&gt;
+...)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+LOCATION '/user/hive/warehouse/&lt;table&gt;' 
+</code>
+</pre>
+</div>
+<div class="notes">
+it can have many csv files
+</div>
+
