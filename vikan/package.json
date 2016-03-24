@@ -14,8 +14,11 @@
   },
   "engines": {
     "node": ">=0.8.0"
+<<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
   },
   "dependencies": {
     "grunt": "^0.4.5"
+=======
+>>>>>>> add vikan presentation
   }
 }

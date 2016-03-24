@@ -1,5 +1,9 @@
 'use strict';
+<<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
 Handlebars.registerHelper('step', function(data) {
+=======
+Handlebars.registerHelper('step', function (data) {
+>>>>>>> add vikan presentation
     var ret = '';
     for (var key in data) {
         ret = ret + ' data-' + key + '="' + data[key] + '"';
@@ -7,11 +11,16 @@ Handlebars.registerHelper('step', function(data) {
     return ret;
 });
 
+<<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
 var appendSlides = function(data) {
+=======
+var appendSlides = function (data) {
+>>>>>>> add vikan presentation
 
     var steps = data;
     var htmltemplate = $('#step-template').html();
     var htmltempl = Handlebars.compile(htmltemplate);
+<<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
     steps.forEach(function(step, index) {
         var templ = htmltempl;
         console.log(step);
@@ -24,12 +33,23 @@ var appendSlides = function(data) {
                     class: step.class,
                     id: step.id
                 }));
+=======
+    steps.forEach(function (step, index) {
+        var templ = htmltempl;
+        console.log(step);
+        $.ajax({
+            url: '/steps/' + step.uri,
+            success: function (data) {
+                $('.steps').append(templ({file: data, data: step.data,
+                                          class: step.class, id: step.id}));
+>>>>>>> add vikan presentation
             },
             async: false
         });
     });
 };
 
+<<<<<<< 092b1974372e705e5780b84cff4870e07c5d0f71
 var c10 = d3.scale.category10();
 var dbUrl = 'https://api.mongolab.com/api/1/databases/rockie_test';
 var apiKey = 'Wq6LkbyEZjQJ5D-HY22jAH7XWM3T2M7z';
@@ -95,3 +115,5 @@ var fetchResult = function(options) {
         updateGraph(votes, options, data.length);
     })
 }
+=======
+>>>>>>> add vikan presentation
