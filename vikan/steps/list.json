@@ -1,0 +1,283 @@
+[
+    {
+        "uri": "start.html",
+        "id": "title",
+        "class": "step title",
+        "data": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "scale": 4,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "whybackground.html",
+        "id": "one-more-thing",
+        "class": "step",
+        "data": {
+            "x": 3300,
+            "y": -700,
+            "z": 0,
+            "scale": 8,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "why.html",
+        "id": "its-in-3d",
+        "class": "step",
+        "data": {
+            "x": 4000,
+            "y": 0,
+            "z": -100,
+            "scale": 4,
+            "rotate-x": -40,
+            "rotate-y": 10,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "why-not.html",
+        "id": "why-not",
+        "class": "step its-in-3d",
+        "data": {
+            "x": 8000,
+            "y": 0,
+            "z": 0,
+            "scale": 4,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "whatis.html",
+        "id": "whatis",
+        "class": "step",
+        "data": {
+            "x": 8000,
+            "y": 4000,
+            "z": 0,
+            "scale": 4,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "threeswords.html",
+        "id": "threeswords",
+        "class": "step",
+        "data": {
+            "x": 12000,
+            "y": 0,
+            "z": 0,
+            "scale": 4,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "shoulders.html",
+        "id": "shoulders",
+        "class": "step",
+        "data": {
+            "x": 12000,
+            "y": 0,
+            "z": 0,
+            "scale": 4,
+            "rotate-x": 90,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "demo.html",
+        "id": "demo",
+        "class": "step",
+        "data": {
+            "x": 12000,
+            "y": -8000,
+            "z": 8000,
+            "scale": 8,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "usingbootstrap.html",
+        "id": "usingbootstrap",
+        "class": "step",
+        "data": {
+            "x": 12000,
+            "y": 0,
+            "z": -18000,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "navbar.html",
+        "id": "navbar",
+        "class": "step",
+        "data": {
+            "x": 16000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "avatar.html",
+        "id": "avatar",
+        "class": "step",
+        "data": {
+            "x": 16000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 90,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "columns.html",
+        "id": "columns",
+        "class": "step",
+        "data": {
+            "x": 16000,
+            "y": 8000,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "dragndrop.html",
+        "id": "dragndrop",
+        "class": "step",
+        "data": {
+            "x": 20000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "question.html",
+        "id": "question",
+        "class": "step",
+        "data": {
+            "x": 20000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 90,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "result.html",
+        "id": "result",
+        "class": "step",
+        "data": {
+            "x": 20000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "mongolab.html",
+        "id": "mongolab",
+        "class": "step",
+        "data": {
+            "x": 24000,
+            "y": 4000,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 45,
+            "rotate-y": 45,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "mongolabsteps.html",
+        "id": "mongolabsteps",
+        "class": "step",
+        "data": {
+            "x": 28000,
+            "y": 0,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "mongolabquery.html",
+        "id": "mongolabquery",
+        "class": "step",
+        "data": {
+            "x": 28000,
+            "y": 0,
+            "z": 8000,
+            "scale": 2,
+            "rotate-x": 90,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "githubio.html",
+        "id": "githubio",
+        "class": "step",
+        "data": {
+            "x": 32000,
+            "y": 8000,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 90,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "who.html",
+        "id": "who",
+        "class": "step",
+        "data": {
+            "x": 32000,
+            "y": 8000,
+            "z": 0,
+            "scale": 2,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+
+        }
+    }
+]
