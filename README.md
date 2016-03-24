@@ -1,7 +1,6 @@
-# explore-spark
-Explore Spark feature
+# presentation
+Host presentations
 
-
-http://blog.madhukaraphatak.com/analysing-csv-data-in-spark/
-http://stanford.edu/~rezab/sparkworkshop/slides/holden.pdf
-http://ampcamp.berkeley.edu/big-data-mini-course/
+<a href="http://rockiey.github.io/presentation/vikan">ViKan, a virtualized kanban project</a>
+<a hred="http://rockiey.github.io/presentation/impress">How to create impress presentation with impress.js</a>
+<a href="http://rockiey.github.io/presentation/sparkling-bigdata">Spark, Make Bigdata Sparkling</a>
