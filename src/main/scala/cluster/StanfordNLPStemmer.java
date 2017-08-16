@@ -3,6 +3,7 @@ package cluster;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.Iterator;
 
 import java.util.function.Function;
@@ -21,7 +22,7 @@ import edu.stanford.nlp.process.PTBTokenizer;
  * @author Sepandar Kamvar (sdkamvar@stanford.edu)
  */
 
-public class StanfordNLPStemmer implements Function<Word,Word> {
+public class StanfordNLPStemmer implements Function<Word,Word>, Serializable{
     private char[] b;
     private int i,     /* offset into b */
             i_end, /* offset to end of stemmed word */
