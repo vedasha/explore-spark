@@ -4,19 +4,17 @@ package cluster
 import org.apache.spark.ml.Pipeline
 import org.apache.spark.ml.clustering.{KMeans, KMeansModel}
 import org.apache.spark.ml.feature._
-import org.apache.spark.ml.linalg.{DenseVector, Vector}
-import org.apache.spark.mllib.linalg.Vectors
-import org.apache.spark.mllib.linalg.distributed.RowMatrix
-import org.apache.spark.rdd.RDD
+import org.apache.spark.ml.linalg.Vector
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.split
 
 object NewsClustering {
 
   val spark = SparkSession.builder.appName("Simple Application").config("spark.master", "local").getOrCreate()
 
   def main(args: Array[String]): Unit = {
-    val df = spark.read.json("/Users/rockie/git/news-crawler/bbc.json").select("text")
+    val df = spark.read.json("data/news.json.gz").select("text")
+
+    print(s"total number of records: ${df.count()}")
 
     val regexTokenizer = new RegexTokenizer().
       setInputCol("text").
@@ -86,31 +84,6 @@ object NewsClustering {
         println(s"WSSSE = $WSSSE when K=$k")
       }
     }
-
-//
-//    // Shows the result.
-//    println("Cluster Centers: ")
-//    model.clusterCenters.foreach(println)
-//
-//
-//    val clustering = model.transform(rescaledData)
-//    clustering.printSchema()
-//    clustering.show()
-
-//    import  org.apache.spark.ml.linalg.Vector
-//
-//    val rdd: RDD[org.apache.spark.mllib.linalg.Vector] = rescaledData.select("features").rdd.map {
-//      row =>
-//        row.get(0) match {
-//          case v: Vector =>
-//            org.apache.spark.mllib.linalg.Vectors.fromML(v)
-//        }
-//    }
-//
-//    val matrix = new RowMatrix(rdd)
-//    val simsPerfect = matrix.columnSimilarities()
-//
-//    println(simsPerfect.entries.first())
   }
 
 
