@@ -37,6 +37,7 @@ object NewsClustering {
     val hashingTF = new HashingTF().setInputCol("stemmed").setOutputCol("hashed").setNumFeatures(73)
 
     val hashed = hashingTF.transform(stemmed)
+
     hashed.show()
     // alternatively, CountVectorizer can also be used to get term frequency vectors
 

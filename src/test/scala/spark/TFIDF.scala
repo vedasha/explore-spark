@@ -4,6 +4,7 @@ import org.apache.spark.sql.SparkSession
 import org.junit.Test
 
 class TFIDF {
+
   val spark = SparkSession.builder.appName("Simple Application").config("spark.master", "local").getOrCreate()
 
   @Test
@@ -31,6 +32,8 @@ class TFIDF {
     val rescaledData = idfModel.transform(featurizedData)
     rescaledData.select("words", "rawFeatures", "features").show(false)
   }
+
+
 
   @Test
   def explainTFIDF: Unit = {
