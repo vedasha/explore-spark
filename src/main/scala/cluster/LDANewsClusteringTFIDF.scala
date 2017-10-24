@@ -8,8 +8,6 @@ import org.apache.spark.ml.linalg.Vector
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
-import scala.collection.mutable
-
 object LDANewsClustering {
 
   val spark = SparkSession.builder.appName("Simple Application").config("spark.master", "local[*]").getOrCreate()
