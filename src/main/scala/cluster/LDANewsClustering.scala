@@ -1,11 +1,12 @@
 package cluster
 
-import org.apache.spark.ml.Pipeline
-import org.apache.spark.ml.clustering.{KMeans, KMeansModel, LDA, LDAModel}
+import java.io.FileWriter
+
+import org.apache.spark.ml.clustering.LDA
 import org.apache.spark.ml.feature._
 import org.apache.spark.ml.linalg.Vector
-import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 import org.apache.spark.sql.functions._
+import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
 object LDANewsClustering {
 
@@ -13,8 +14,6 @@ object LDANewsClustering {
   import spark.implicits._
 
   def getDF() = {
-
-
     val df = spark.read.json("data/news.json.gz").filter($"language" === "en").select("canonical_link", "text").distinct().cache
     print(s"total number of records: ${df.count()}")
 
@@ -27,26 +26,37 @@ object LDANewsClustering {
 
     val (rescaledDF: DataFrame, vocabulary) = preprocess(df)
 
-    val topics = train(rescaledDF, vocabulary)
+    val writer =  new FileWriter("vocabulary.txt")
+    vocabulary.foreach(vocab => writer.write(s"$vocab\n"))
+    rescaledDF.cache()
+    val maxIter = 200
+    for (i <- 3 to 300) {
+      val (topics, lp) = train(rescaledDF, i, maxIter, vocabulary)
 
-    showTopics(topics, vocabulary)
+      topics.repartition(1).write.json(s"topics$i.$lp.json")
+      showTopics(topics, vocabulary)
+    }
   }
 
+  val nDropMostCommon = 1000
+  val maxTermsPerTopic = 100
+  val dropRightPercentage = 0.5
 
-  val udfSize = udf[Int, Seq[String]](_.size)
+  val udfSeqSize = udf[Int, Seq[String]](_.size)
 
-  def format(seq: Seq[Double]): Seq[String] = {
+  def format5Digit(seq: Seq[Double]): Seq[String] = {
       seq.map("%.5f".format(_))
   }
 
-  val udfFormat = udf[Seq[String], Vector](vec => format(vec.toArray))
-  val udfFormatSeq = udf[Seq[String], Seq[Double]](format(_))
+  val udfFormatVector5Digit = udf[Seq[String], Vector](vec => format5Digit(vec.toArray))
+  val udfFormatSeq5Digit = udf[Seq[String], Seq[Double]](format5Digit(_))
 
 
-  private def train(rescaledData: DataFrame, vocabulary: Array[String]) = {
+  private def train(rescaledData: DataFrame, k: Int, iter: Int, vocabulary: Array[String]): (DataFrame, Double) = {
     val start = System.currentTimeMillis()
 
-    val lda = new LDA().setK(10).setMaxIter(10)
+    val lda = new LDA().setK(k).setMaxIter(iter)
+
     val model = lda.fit(rescaledData)
 
     val ll = model.logLikelihood(rescaledData)
@@ -56,45 +66,55 @@ object LDANewsClustering {
     println(s"The upper bound on perplexity: $lp")
 
     // Describe topics.
-    val topics = model.describeTopics(maxTermsPerTopic = 8)
+    val topics = model.describeTopics(maxTermsPerTopic)
+
     println("The topics described by their top-weighted terms:")
-    val udfTerms = udf[Seq[String], Seq[Int]](seq => seq.map(id => vocabulary(id)))
-    topics.select($"topic", $"termIndices", udfTerms($"termIndices").as("term"), udfFormatSeq($"termWeights").as("termWeights")).show(false)
+    val udfTermIndex2Term = udf[Seq[String], Seq[Int]](seq => seq.map(id => vocabulary(id)))
+    topics.select(
+      $"topic",
+      $"termIndices",
+      udfTermIndex2Term($"termIndices").as("term"),
+      udfFormatSeq5Digit($"termWeights").as("termWeights")
+    ).show(false)
 
 
     // Shows the result.
 
     val transformed = model.transform(rescaledData)
+
     transformed.printSchema()
-    transformed.select(col("canonical_link"), udfFormat(col("topicDistribution")).as("topicDistribution")).show(false)
-    val r = transformed.head()
+    transformed.select(
+      col("canonical_link"),
+      udfFormatVector5Digit(col("topicDistribution")).as("topicDistribution")
+    ).show(false)
+
     val elapsed = (System.currentTimeMillis() - start) / 1000.0
     println(s"totally spend $elapsed second")
 
-    topics
+    (topics, lp)
   }
 
   def showTopics(topics: DataFrame, vocabArray: Array[String]): Unit = {
-//    val topics = model.describeTopics(maxTermsPerTopic = 20)
-//    (topic, termIndices.toSeq, termWeights.toSeq)
-//    val topics = topicIndices.map { case (terms, termWeights) =>
-//      terms.zip(termWeights).map { case (term, weight) => (vocabArray(term.toInt), weight) }
-//    }
-//    println(s"${params.k} topics:")
-    topics.collect().foreach { case Row(topic, termIndices: Seq[Int], termWeights: Seq[Double]) =>
-      println(s"TOPIC $topic ${termIndices.size} ${termWeights.size}")
 
-      termIndices.zipWithIndex.foreach { case (term, index) =>
-        val weight = "%.5f".format(termWeights(index))
-        val vocab = vocabArray(term)
-        println(s"$weight\t$vocab\t$term")
-      }
-      println()
+
+    topics.collect().foreach {
+      case Row(topic, termIndices: Seq[Int], termWeights: Seq[Double]) =>
+        println(s"TOPIC $topic ${termIndices.size} ${termWeights.size}")
+
+        termIndices.zipWithIndex.foreach { case (term, index) =>
+          val weight = "%.5f".format(termWeights(index))
+          val vocab = vocabArray(term)
+          println(s"$weight\t$vocab\t$term")
+        }
+        println()
     }
 
   }
 
   private def preprocess(df: DataFrame) = {
+    //
+    // tokenizer
+    //
     val regexTokenizer = new RegexTokenizer().
       setInputCol("text").
       setOutputCol("words").
@@ -102,44 +122,82 @@ object LDANewsClustering {
     val tokenized = regexTokenizer.transform(df)
     tokenized.show()
 
+    //
+    // words removal
+    //
+    // remove english stop word and numbers
+    val numbers: Array[String] = (0 to 3000).map(_.toString).toArray
+    val a2z = ('a' to 'z').map(_.toString).toArray
 
-
+    val stopWords: Array[String] = StopWordsRemover.loadDefaultStopWords("english") ++ numbers ++ a2z
     val remover = new StopWordsRemover().
       setInputCol("words").
-      setOutputCol("removed").setStopWords(StopWordsRemover.loadDefaultStopWords("english"))
+      setOutputCol("removed").setStopWords(stopWords)
     val removed = remover.transform(tokenized)
     removed.show()
 
+    //
+    // Stemming
+    //
+    // TODO how to handle this, after stemming, there are some words like n, th,
+    // One way will be having another removal
     val stemmer = new Stemmer().setInputCol("removed").setOutputCol("stemmed")
     val stemmed = stemmer.transform(removed)
 
-    stemmed.select($"words",
-      udfSize($"words").alias("wordsOriginal"),
-      udfSize($"removed").alias("wordsAfterRemoved"),
-      udfSize($"stemmed").alias("wordsAfterStemmed")).show()
+//
+//
+//    val removerA2Z = new StopWordsRemover().
+//      setInputCol("words").
+//      setOutputCol("removedA2Z").setStopWords(stopWords)
+//    val removedA2Z = removerA2Z.transform(stemmed)
 
-    val minDF = 0.2
-    val minTF = 0.8
-    val vocabSize = 2900000
+    //
+    // check the size between original, after removal and after stemming
+    // stemming will keep the same number of words, just will change the form of the words
+//    removedA2Z.select($"words",
+//      udfSeqSize($"words").alias("wordsOriginal"),
+//      udfSeqSize($"removed").alias("wordsAfterRemoved"),
+//      udfSeqSize($"removedA2Z").alias("wordsAfterRemoveA2Z")).show()
+
+
+    //
+    // vectorizer
+    //
+    // val minDF = 0.2 // collected term appear more than 20% of the documents of the corpus
+    // val minDF = 2   // collected term appear more than 2 documents of the corpus
+    // val minTF = 0.2 // term having more than 20% appearance in the documents
+    // val minTF = 2 // term having appear more than 2 in the documents
+    //
+//    val vocabSize = 2900000
     val countVectorizer = new CountVectorizer().setInputCol("stemmed").
-      setOutputCol("features").setMinDF(3).setMinTF(2)//.setVocabSize(vocabSize).setMinDF(minDF).setMinTF(minTF)
+      setOutputCol("features").setMinDF(3).setMinTF(2)
 
-
+    //
+    // fit to get the vocabulary
+    //
+    // the vocabulary are ordered by commonality
+    //
     val vectorModel = countVectorizer.fit(stemmed)
 
-    println("vocabulary: " + vectorModel.vocabulary.take(20).mkString(" "))
-    println(s"totally ${vectorModel.vocabulary.length} of words")
+    println("most common words: " + vectorModel.vocabulary.take(20).mkString(" "))
+    println(s"totally ${vectorModel.vocabulary.length} of words in the vocabulary")
 
-    val newVectorModel = new CountVectorizerModel(vectorModel.vocabulary.drop(100)).
+    //
+    // having a new vector model by dropping the some most common words
+    //
+
+    val dropRight = (vectorModel.vocabulary.size * dropRightPercentage).toInt
+    val vocabulary = vectorModel.vocabulary.drop(nDropMostCommon).dropRight(dropRight)
+    val newVectorModel = new CountVectorizerModel(vocabulary).
       setInputCol("stemmed").setOutputCol("features")
+
+    //
+    // transform from words to vectors
+    //
     val featurizedData = newVectorModel.transform(stemmed)
     val dfFeaturized: DataFrame = featurizedData.select("canonical_link", "words", "features")
 
-
-//    val countToken = dfFeaturized.map{
-//      row => row.getAs("features")
-//    }
-    (dfFeaturized.cache(), newVectorModel.vocabulary)
+    (dfFeaturized, vocabulary)
   }
 
 }
