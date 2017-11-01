@@ -25,17 +25,17 @@
     </properties>
 
     <!-- repository to add org.apache.spark -->
-    <!--<repositories>-->
+    <repositories>
         <!--<repository>-->
             <!--<id>cloudera-repo-releases</id>-->
             <!--<url>https://repository.cloudera.com/artifactory/repo/</url>-->
         <!--</repository>-->
 
-        <!--<repository>-->
-            <!--<id>spark-packages</id>-->
-            <!--<url>https://dl.bintray.com/spark-packages/maven/</url>-->
-        <!--</repository>-->
-    <!--</repositories>-->
+        <repository>
+            <id>spark-packages</id>
+            <url>https://dl.bintray.com/spark-packages/maven/</url>
+        </repository>
+    </repositories>
 
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
@@ -222,7 +222,11 @@
             <!--<artifactId>spark-csv_2.10</artifactId>-->
             <!--<version>1.3.0</version>-->
         <!--</dependency>-->
-
+        <dependency>
+            <groupId>databricks</groupId>
+            <artifactId>spark-corenlp</artifactId>
+            <version>0.2.0-s_2.11</version>
+        </dependency>
         <dependency>
             <groupId>com.cloudera.sparkts</groupId>
             <artifactId>sparkts</artifactId>

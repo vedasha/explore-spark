@@ -6,13 +6,14 @@ import org.apache.spark.ml.clustering.{KMeans, KMeansModel}
 import org.apache.spark.ml.feature._
 import org.apache.spark.ml.linalg.Vector
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions._
 
 object NewsClustering {
 
   val spark = SparkSession.builder.appName("Simple Application").config("spark.master", "local").getOrCreate()
 
   def main(args: Array[String]): Unit = {
-    val df = spark.read.json("data/news.json.gz").select("text")
+    val df = spark.read.json("data/news.json.gz").filter(col("language") === "en").select("text")
 
     print(s"total number of records: ${df.count()}")
 

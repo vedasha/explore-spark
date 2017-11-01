@@ -8,13 +8,13 @@ import org.apache.spark.ml.linalg.Vector
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
-object LDANewsClustering {
+object LDANewsClusteringTFIDF {
 
   val spark = SparkSession.builder.appName("Simple Application").config("spark.master", "local[*]").getOrCreate()
   import spark.implicits._
 
   def getDF() = {
-    val df = spark.read.json("data/news.json.gz").filter($"language" === "en").select("canonical_link", "text").distinct().cache
+    val df = spark.read.json("data/cleaned.json.gz").select("canonical_link", "text").distinct().cache
     print(s"total number of records: ${df.count()}")
 
     df
@@ -127,9 +127,7 @@ object LDANewsClustering {
 
 
     val udfDistinct = udf[Seq[String], Seq[String]](ar => ar.distinct)
-//    val dfDistinct = tokenized.select(udfDistinct($"words").as("words"))
 
-//    tokenized.map(row => row)
     //
     // words removal
     //
@@ -179,45 +177,14 @@ object LDANewsClustering {
     val vectorModel = countVectorizer.fit(stemmed)
     val featurizedData = vectorModel.transform(stemmed)
 
-    val idf = new IDF().setInputCol("rawFeatures").setOutputCol("features")
-    val idfModel = idf.fit(featurizedData)
-
-    val rescaledData = idfModel.transform(featurizedData)
-
-    val originVocabuary = vectorModel.vocabulary
-
-    println("most common words: " + originVocabuary.take(20).mkString(" "))
+//    val idf = new IDF().setInputCol("features").setOutputCol("tfidffeatures")
+//    val idfModel = idf.fit(featurizedData)
+//
+//    val rescaledData = idfModel.transform(featurizedData)
 
 
-    val nums = (0 to 9).map(_.toChar).toSet
-    val filteredVocabs = originVocabuary.
-      map(vocab => vocab.filter(ch => !nums.contains(ch))).
-      filter(vocab => vocab.size > 2)
 
-    println(s"totally ${originVocabuary.length} of words in the vocabulary")
-    println(s"totally ${filteredVocabs.length} of words in the vocabulary after filtering")
-
-    val writer = new BufferedWriter(new FileWriter("src/main/resources/vocabulary.txt"))
-    filteredVocabs.foreach(word => writer.write(s"$word\n"))
-    writer.close()
-
-    //
-    // having a new vector model by dropping the some most common words
-    //
-
-    val dropRight = (filteredVocabs.size * dropRightPercentage).toInt
-    val vocabulary = filteredVocabs.drop(nDropMostCommon).dropRight(dropRight)
-    val newVectorModel = new CountVectorizerModel(vocabulary).
-      setInputCol("stemmed").setOutputCol("features")
-
-    //
-    // transform from words to vectors
-    //
-    val featurizedData = newVectorModel.transform(stemmed)
-    val dfFeaturized: DataFrame = featurizedData.select("canonical_link", "words", "features")
-    dfFeaturized.repartition(8).write.parquet("vectorized.parquet")
-    val dfParquet = spark.read.parquet("vectorized.parquet").cache()
-    (dfParquet, vocabulary)
+    (featurizedData, Array[String]())
   }
 
 }

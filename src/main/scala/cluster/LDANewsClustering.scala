@@ -1,6 +1,6 @@
 package cluster
 
-import java.io.{BufferedWriter, FileWriter}
+import java.io.FileWriter
 
 import org.apache.spark.ml.clustering.LDA
 import org.apache.spark.ml.feature._
@@ -8,15 +8,13 @@ import org.apache.spark.ml.linalg.Vector
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
-import scala.collection.mutable
-
 object LDANewsClustering {
 
   val spark = SparkSession.builder.appName("Simple Application").config("spark.master", "local[*]").getOrCreate()
   import spark.implicits._
 
   def getDF() = {
-    val df = spark.read.json("data/news.json.gz").filter($"language" === "en").select("canonical_link", "text").distinct().cache
+    val df = spark.read.json("data/cleaned.news.json.gz").filter($"language" === "en").select("canonical_link", "text").distinct().cache
     print(s"total number of records: ${df.count()}")
 
     df
@@ -30,12 +28,12 @@ object LDANewsClustering {
 
     val writer =  new FileWriter("vocabulary.txt")
     vocabulary.foreach(vocab => writer.write(s"$vocab\n"))
-
+    rescaledDF.cache()
     val maxIter = 200
-    for (i <- 63 to 300) {
-      val (topics, lp, ll) = train(rescaledDF, i, maxIter, vocabulary)
+    for (i <- 7 to 10) {
+      val (topics, lp) = train(rescaledDF, i, maxIter, vocabulary)
 
-      topics.repartition(1).write.json(s"topics$i.$lp.$ll.json")
+      topics.repartition(1).write.json(s"topics$i.$lp.json")
       showTopics(topics, vocabulary)
     }
   }
@@ -47,14 +45,14 @@ object LDANewsClustering {
   val udfSeqSize = udf[Int, Seq[String]](_.size)
 
   def format5Digit(seq: Seq[Double]): Seq[String] = {
-      seq.map("%.5f".format(_))
+    seq.map("%.5f".format(_))
   }
 
   val udfFormatVector5Digit = udf[Seq[String], Vector](vec => format5Digit(vec.toArray))
   val udfFormatSeq5Digit = udf[Seq[String], Seq[Double]](format5Digit(_))
 
 
-  private def train(rescaledData: DataFrame, k: Int, iter: Int, vocabulary: Array[String]): (DataFrame, Double, Double) = {
+  private def train(rescaledData: DataFrame, k: Int, iter: Int, vocabulary: Array[String]): (DataFrame, Double) = {
     val start = System.currentTimeMillis()
 
     val lda = new LDA().setK(k).setMaxIter(iter)
@@ -93,7 +91,7 @@ object LDANewsClustering {
     val elapsed = (System.currentTimeMillis() - start) / 1000.0
     println(s"totally spend $elapsed second")
 
-    (topics, lp, ll)
+    (topics, lp)
   }
 
   def showTopics(topics: DataFrame, vocabArray: Array[String]): Unit = {
@@ -124,14 +122,6 @@ object LDANewsClustering {
     val tokenized = regexTokenizer.transform(df)
     tokenized.show()
 
-    val SMALLEST_ARTICLES = 100
-    val dfRemovedSmallArticles = tokenized.filter(size($"words") > SMALLEST_ARTICLES)
-
-
-    val udfDistinct = udf[Seq[String], Seq[String]](ar => ar.distinct)
-//    val dfDistinct = tokenized.select(udfDistinct($"words").as("words"))
-
-//    tokenized.map(row => row)
     //
     // words removal
     //
@@ -139,13 +129,10 @@ object LDANewsClustering {
     val numbers: Array[String] = (0 to 3000).map(_.toString).toArray
     val a2z = ('a' to 'z').map(_.toString).toArray
 
-
-
-    val stopWords: Array[String] = scala.io.Source.fromFile("src/main/resources/stop.txt").getLines().toArray
-
+    val stopWords: Array[String] = StopWordsRemover.loadDefaultStopWords("english") ++ numbers ++ a2z
     val remover = new StopWordsRemover().
       setInputCol("words").
-      setOutputCol("removed").setStopWords(stopWords ++ numbers ++ a2z)
+      setOutputCol("removed").setStopWords(stopWords)
     val removed = remover.transform(tokenized)
     removed.show()
 
@@ -158,6 +145,22 @@ object LDANewsClustering {
     val stemmed = stemmer.transform(removed)
 
     //
+    //
+    //    val removerA2Z = new StopWordsRemover().
+    //      setInputCol("words").
+    //      setOutputCol("removedA2Z").setStopWords(stopWords)
+    //    val removedA2Z = removerA2Z.transform(stemmed)
+
+    //
+    // check the size between original, after removal and after stemming
+    // stemming will keep the same number of words, just will change the form of the words
+    //    removedA2Z.select($"words",
+    //      udfSeqSize($"words").alias("wordsOriginal"),
+    //      udfSeqSize($"removed").alias("wordsAfterRemoved"),
+    //      udfSeqSize($"removedA2Z").alias("wordsAfterRemoveA2Z")).show()
+
+
+    //
     // vectorizer
     //
     // val minDF = 0.2 // collected term appear more than 20% of the documents of the corpus
@@ -165,13 +168,9 @@ object LDANewsClustering {
     // val minTF = 0.2 // term having more than 20% appearance in the documents
     // val minTF = 2 // term having appear more than 2 in the documents
     //
-
-    // remove term appear less than 10 articles
-    // remove term appear more than 10% of the articles
-    //
-//    val vocabSize = 2900000
+    //    val vocabSize = 2900000
     val countVectorizer = new CountVectorizer().setInputCol("stemmed").
-      setOutputCol("features").setMinDF(10).setMinTF(2)
+      setOutputCol("features").setMinDF(3).setMinTF(2)
 
     //
     // fit to get the vocabulary
@@ -179,36 +178,16 @@ object LDANewsClustering {
     // the vocabulary are ordered by commonality
     //
     val vectorModel = countVectorizer.fit(stemmed)
-    val featurizedData = vectorModel.transform(stemmed)
 
-    val idf = new IDF().setInputCol("rawFeatures").setOutputCol("features")
-    val idfModel = idf.fit(featurizedData)
-
-    val rescaledData = idfModel.transform(featurizedData)
-
-    val originVocabuary = vectorModel.vocabulary
-
-    println("most common words: " + originVocabuary.take(20).mkString(" "))
-
-
-    val nums = (0 to 9).map(_.toChar).toSet
-    val filteredVocabs = originVocabuary.
-      map(vocab => vocab.filter(ch => !nums.contains(ch))).
-      filter(vocab => vocab.size > 2)
-
-    println(s"totally ${originVocabuary.length} of words in the vocabulary")
-    println(s"totally ${filteredVocabs.length} of words in the vocabulary after filtering")
-
-    val writer = new BufferedWriter(new FileWriter("src/main/resources/vocabulary.txt"))
-    filteredVocabs.foreach(word => writer.write(s"$word\n"))
-    writer.close()
+    println("most common words: " + vectorModel.vocabulary.take(20).mkString(" "))
+    println(s"totally ${vectorModel.vocabulary.length} of words in the vocabulary")
 
     //
     // having a new vector model by dropping the some most common words
     //
 
-    val dropRight = (filteredVocabs.size * dropRightPercentage).toInt
-    val vocabulary = filteredVocabs.drop(nDropMostCommon).dropRight(dropRight)
+    val dropRight = (vectorModel.vocabulary.size * dropRightPercentage).toInt
+    val vocabulary = vectorModel.vocabulary.drop(nDropMostCommon).dropRight(dropRight)
     val newVectorModel = new CountVectorizerModel(vocabulary).
       setInputCol("stemmed").setOutputCol("features")
 
@@ -217,9 +196,8 @@ object LDANewsClustering {
     //
     val featurizedData = newVectorModel.transform(stemmed)
     val dfFeaturized: DataFrame = featurizedData.select("canonical_link", "words", "features")
-    dfFeaturized.repartition(8).write.parquet("vectorized.parquet")
-    val dfParquet = spark.read.parquet("vectorized.parquet").cache()
-    (dfParquet, vocabulary)
+
+    (dfFeaturized, vocabulary)
   }
 
 }
