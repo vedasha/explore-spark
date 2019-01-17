@@ -1,0 +1,29 @@
+{
+  "databases": [
+    {
+      "database_name": "database_name",
+      "database_description": "This is a database",
+      "extra_database_description": "desc1",
+      "extra_database_description": "desc2",
+
+      "tables": [
+        {
+          "table_name": "table_name",
+          "table_description": "This is a table",
+          "columns": [
+            {
+              "column_name": "name",
+              "column_description": "user name"
+            },
+
+            {
+              "column_name": "id",
+              "column_description": "id",
+              "anonymizer": "hash"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

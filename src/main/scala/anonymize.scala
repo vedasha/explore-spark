@@ -9,6 +9,11 @@ object anonymize {
   val spark = SparkSession.builder.appName("Simple Application").config("spark.master", "local[*]").getOrCreate()
   import spark.implicits._
 
+  trait Locator {
+    def apply(v: String): String
+  }
+
+
   def main(args: Array[String]): Unit = {
 
     val mask5to7 = mask(5, 7, '*')

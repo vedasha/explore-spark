@@ -1,0 +1,19 @@
+{
+ "display_name": "pySpark Local",
+ "language": "python",
+ "argv": [
+  "/opt/conda/bin/python",
+  "-m",
+  "ipykernel",
+  "-f",
+  "{connection_file}"
+ ],
+ "env": {
+  "PYSPARK_PYTHON": "/opt/conda/bin/python",
+  "SPARK_HOME": "/usr/local/spark",
+  "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python/",
+  "PYTHONSTARTUP": "/usr/local/spark/python/pyspark/shell.py",
+  "PYSPARK_SUBMIT_ARGS": "--master local[*] pyspark-shell"
+ }
+}
+

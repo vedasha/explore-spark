@@ -1,11 +1,41 @@
 package spark
 
+import org.apache.spark.ml.linalg.{DenseVector, SparseVector, Vector, Vectors}
 import org.apache.spark.sql.SparkSession
 import org.junit.Test
+import org.apache.spark.sql.functions._
 
 class TFIDF {
 
   val spark = SparkSession.builder.appName("Simple Application").config("spark.master", "local").getOrCreate()
+
+  def normalize(size: Int, v: Vector): Vector = {
+    val n = v.size
+    val dSize = size.toDouble
+    v match {
+      case SparseVector(sz, indices, values) =>
+        val nnz = indices.length
+        val newValues = new Array[Double](nnz)
+        var k = 0
+        while (k < nnz) {
+          newValues(k) = values(k) / dSize
+          k += 1
+        }
+        Vectors.sparse(n, indices, newValues)
+      case DenseVector(values) =>
+        val newValues = new Array[Double](n)
+        var j = 0
+        while (j < n) {
+          newValues(j) = values(j) / dSize
+          j += 1
+        }
+        Vectors.dense(newValues)
+      case other =>
+        throw new UnsupportedOperationException(
+          s"Only sparse and dense vectors are supported but got ${other.getClass}.")
+    }
+  }
+
 
   @Test
   def explainCountVectorizer: Unit = {
@@ -26,10 +56,15 @@ class TFIDF {
     val featurizedData = vectorModel.transform(wordsData)
     featurizedData.select("words", "rawFeatures").show(false)
 
+    val udfNormalize = udf{normalize _}
+    val normalized = featurizedData.withColumn("normalized", udfNormalize(size(col("words")), col("rawFeatures")))
+    normalized.show(false)
     val idf = new IDF().setInputCol("rawFeatures").setOutputCol("features")
-    val idfModel = idf.fit(featurizedData)
+    val idfModel = idf.fit(normalized)
 
+    println(idfModel.idf.toArray.mkString(" "))
     val rescaledData = idfModel.transform(featurizedData)
+    rescaledData.show(false)
     rescaledData.select("words", "rawFeatures", "features").show(false)
   }
 
